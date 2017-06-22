@@ -6,7 +6,7 @@
 #    By: thou <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/02 16:25:43 by thou              #+#    #+#              #
-#    Updated: 2017/06/19 18:00:18 by thou             ###   ########.fr        #
+#    Updated: 2017/06/22 16:26:36 by thou             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 GIT_DIR=$(git rev-parse --git-dir | sed 's/.git$//')
@@ -21,6 +21,5 @@ MESSAGE=$1
 if [ -z $MESSAGE ]; then
 	MESSAGE=$(date)
 fi
-echo $MESSAGE
 git commit -m "$MESSAGE"
 git push
