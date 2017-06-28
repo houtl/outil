@@ -18,7 +18,7 @@ if [ -e "$HOME/.ssh/id_rsa_$2" ]; then
 	exit
 fi
 
-echo "$HOME/.ssh/id_rsa_$2" | ssh-keygen -P passphrase -t rsa -C $1
+echo "$HOME/.ssh/id_rsa_$2" | ssh-keygen -P "" -t rsa -C $1
 
 if [ ! $? ]; then
 	exit
@@ -28,6 +28,7 @@ if [ $SESSION="ubuntu" ]; then
 	cat $HOME/.ssh/id_rsa_prive.pub | xclip -selection clipboard
 fi
 
+rm -rf ~/.ssh/config
 echo "# default
 Host github.com
 HostName github.com
