@@ -29,6 +29,3 @@ Host gp.github.com
 HostName github.com
 User git
 IdentityFile ~/.ssh/id_rsa_prive" >> ~/.ssh/config
-
-git config --global --unset user.name
-git config --global --unset user.email
