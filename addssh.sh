@@ -5,12 +5,17 @@ green="\033[0;32m"
 nocolor="\033[0m"
 
 usage() {
-	echo "$green usage: addssh [User mail] [key文件名(prive, new, 等)]$nocolor"
+	echo "$green Usage: addssh [User mail] [key文件名(prive, new, 等)]$nocolor"
 	exit
 }
 
 if [ $# != 2 ]; then
 	usage
+fi
+
+if [ -a "$HOME/.ssh/id_rsa_$2" ]; then
+	echo "$green ERROR: file ~/.ssh/id_rsa_$2 already exists.$nocolor"
+	exit
 fi
 
 echo "$HOME/.ssh/id_rsa_$2" | ssh-keygen -P passphrase -t rsa -C $1
