@@ -1,3 +1,4 @@
+#解决ubuntu和windows时间不同步问题
 red="\033[0;31m"
 green="\033[0;32m"
 nocolor="\033[0m"
