@@ -6,9 +6,11 @@
 #    By: thou <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/02 16:25:43 by thou              #+#    #+#              #
-#    Updated: 2017/06/22 16:26:36 by thou             ###   ########.fr        #
+#    Updated: 2017/06/29 10:26:52 by thou             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+#简化git push的步骤
 GIT_DIR=$(git rev-parse --git-dir | sed 's/.git$//')
 if [ -z $GIT_DIR ]; then
 	GIT_DIR=./
