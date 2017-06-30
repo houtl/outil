@@ -6,7 +6,7 @@
 #    By: thou <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/29 10:27:04 by thou              #+#    #+#              #
-#    Updated: 2017/06/29 10:27:07 by thou             ###   ########.fr        #
+#    Updated: 2017/06/30 13:57:40 by thou             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,11 @@ if [ ! $? ]; then
 fi
 
 if [ $SESSION="ubuntu" ]; then
-	cat $HOME/.ssh/id_rsa_prive.pub | xclip -selection clipboard
+	cat $HOME/.ssh/id_rsa_$2.pub | xclip -selection clipboard
+fi
+
+if [ $(uname) == "Darwin" ]; then
+	cat $HOME/.ssh/id_rsa_$2.pub | pbcopy
 fi
 
 rm -rf ~/.ssh/config
