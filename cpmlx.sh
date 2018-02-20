@@ -10,15 +10,28 @@
 #                                                                              #
 # **************************************************************************** #
 
-if [ $1 != "e1" -a $1 != "e2" -a $1 != "e3" ]; then
-	echo "sh cpmlx.sh [e1 || e2 || e3] [DST_PAST]"
+MLX_MACOS="minilibx_macos"
+MLX_X11="minilibx_x11"
+TGZ_MACOS="minilibx_macos_sierra_20161017.tgz"
+TGZ_X11="sources.tgz"
+if [[ $1 != "linux" && $1 != "mac" && $1 != "unix" ]]; then
+	echo "sh cpmlx.sh [linux || mac || unix] [DST_PAST]"
 else
 	DST_PATH=$2
 	E=$1
 	if [ -z "$DST_PATH" ]; then
 		DST_PATH=minilibx
 	fi
-	rm -rf $DST_PATH
-	mkdir $DST_PATH
-	cp -R /Users/thou/Downloads/minilibx_$E/ ./$DST_PATH
+	if [ $E = "mac" -o $E = "unix" ]; then
+		curl https://projects.intra.42.fr/uploads/document/document/356/$TGZ_MACOS -o ~/Downloads/$TGZ_MACOS
+		tar -xvf ~/Downloads/$TGZ_MACOS
+		mv $MLX_MACOS $DST_PATH
+		rm ~/Downloads/$TGZ_MACOS
+	fi
+	if [ $E = "linux" ]; then
+		curl https://projects.intra.42.fr/uploads/document/document/7/$TGZ_X11 -o ~/Downloads/$TGZ_X11
+		tar -xvf ~/Downloads/$TGZ_X11
+		mv $MLX_X11 $DST_PATH
+		rm ~/Downloads/$TGZ_X11
+	fi
 fi
