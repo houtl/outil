@@ -14,7 +14,7 @@ if [ ! -d ~/libft ]; then
 	git clone https://github.com/houtl/libft.git ~/libft
 fi
 
-if [ /home/thou = $(pwd) ]; then
+if [ $HOME = $(pwd) ]; then
 	echo "libft se trouve ici"
 else
 	if [ -z "$1" ]; then
